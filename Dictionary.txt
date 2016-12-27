@@ -1,0 +1,7 @@
+outbound: adj: исходящий;
+inbound: adj: входящий;
+arrange: verb: договариваться/организовывать;
+on-die: col: на кристале;
+backbone: noun: позвоночник;
+tunable: adj: настраиваемый;
+idle: noun: холостой ход;
