@@ -1,6 +1,5 @@
 import re
 
-
 class DictionaryEntry:
     __word = ''
     __type = ''
@@ -21,10 +20,10 @@ class DictionaryEntry:
         self.__tran = self.__tran.strip()
 
     def __str__(self):
-        return '%s [%s] - %s.\n\tDefinition: %s\n' % (  self.__word, \
-                                                        self.__type, \
-                                                        self.__tran, \
-                                                        self.__def)
+        return '%s [%s] - %s.\n\tDefinition: %s' % (self.__word, \
+                                                    self.__type, \
+                                                    self.__tran, \
+                                                    self.__def)
 
     def getWord(self):
         return self.__word
