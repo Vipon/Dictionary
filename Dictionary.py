@@ -50,7 +50,7 @@ class Dictionary:
         '''
         oldFileName = self.__file.name
         self.__file.close()
-        newFile = open('tmp' + oldFileName, 'w+', encoding='utf8')
+        newFile = open('tmp_' + oldFileName, 'w+', encoding='utf8')
         newFile.write(str)
         os.remove(oldFileName)
         os.rename(newFile.name, oldFileName)
@@ -59,6 +59,14 @@ class Dictionary:
     def close(self):
         self.save()
         self.__file.close()
+
+    def createNewEntry(self, Word = '', Type = '', Def = '', Tran = ''):
+        if Type not in self.__dict:
+            self.__dict[Type] = []
+
+        str = Word + ': ' + Type+ ': ' + Def+ ': ' + Tran + ';'
+        self.__dict[Type].append(DictionaryEntry(str))
+        self.sort(Type)
 
 Dict = Dictionary('Dictionary.txt')
 print(Dict)
