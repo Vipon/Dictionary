@@ -6,8 +6,25 @@ class Dictionary:
     __dict = dict()
     __file = None
 
+    TMPSTR = 'tmp_'
     def __init__(self, file = ''):
-        self.__file = open(file, 'r+', encoding='utf8')
+        # Check previous session.
+        tmp = self.TMPSTR + file
+        if os.path.exists(tmp):
+            # We could not perform all actions to save the dictionary.
+            if os.path.exists(file):
+                # We saved part of dictionary, but not all.
+                self.__tryRecover(file, tmp)
+            else:
+                # Optimization. We couldn't to perform only rename.
+                os.rename(tmp, file)
+
+        # Create new dictionary, after check.
+        if os.path.exists(file):
+            self.__file = open(file, 'r+', encoding='utf8')
+        else:
+            self.__file = open(file, 'w+', encoding='utf8')
+
         for line in self.__file:
             entry = DictionaryEntry(line)
             Type = entry.getType()
@@ -17,7 +34,19 @@ class Dictionary:
 
             self.__dict[Type].append(entry)
 
+        # Sort new dictionary.
         self.sort()
+
+    def __tryRecover(self, file, tmp):
+        '''
+        !TODO: Need make function more clever. Currently, there is a very
+        stupid recover. We will save only the biggest dictionary.
+        '''
+        if os.path.getsize(tmp) > os.path.getsize(file):
+            os.remove(file)
+            os.rename(tmp, file)
+        else:
+            os.remove(tmp)
 
     def __str__(self):
         str = ''
@@ -50,7 +79,7 @@ class Dictionary:
         '''
         oldFileName = self.__file.name
         self.__file.close()
-        newFile = open('tmp_' + oldFileName, 'w+', encoding='utf8')
+        newFile = open(TMPSTR + oldFileName, 'w+', encoding='utf8')
         newFile.write(str)
         os.remove(oldFileName)
         os.rename(newFile.name, oldFileName)
@@ -80,7 +109,7 @@ class Dictionary:
             Entry.setWord(newWord)
         if newType != None:
             Entry.setTran(newType)
-        if newDef != None:
+        if newDef  != None:
             Entry.setDef(newDef)
         if newTran != None:
             Entry.setTran(newTran)
