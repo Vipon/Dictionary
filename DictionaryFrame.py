@@ -5,11 +5,11 @@ from DictionaryEntry import *
 class DictionaryFrame:
     __frame = None
 
-    def __init__(self, size = ''):
+    def __init__(self):
         frame = Tk()
         frame.title("Dictionary")
         frame.geometry('900x600')
-        frame.protocol('WM_DELETE_WINDOW', close)
+        frame.protocol('WM_DELETE_WINDOW', self.__close)
 
         self.__frame = frame
 
