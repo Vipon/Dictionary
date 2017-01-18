@@ -11,6 +11,14 @@ class DictionaryFrame:
         frame.geometry('900x600')
         frame.protocol('WM_DELETE_WINDOW', self.__close)
 
+        Word = Entry(frame)
+        Word.pack()
+        Type = Entry(frame)
+        Type.pack()
+        Tran = Entry(frame)
+        Tran.pack()
+        Def  = Entry(frame)
+        Def.pack()
         self.__frame = frame
 
     def start(self):

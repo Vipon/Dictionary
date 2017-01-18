@@ -84,12 +84,3 @@ class Dictionary:
             Entry.setDef(newDef)
         if newTran != None:
             Entry.setTran(newTran)
-
-Dict = Dictionary('Dictionary.txt')
-print(Dict)
-Dict.createNewEntry('t')
-entry = Dict.findEntry('t')
-print(entry)
-Dict.changeEntry(entry, 'yyy')
-
-Dict.close()
