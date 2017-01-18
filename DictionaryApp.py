@@ -1,4 +1,4 @@
 from DictionaryFrame import *
 
-App = DictionaryFrame()
+App = DictionaryFrame('Dictionary.txt')
 App.start()
