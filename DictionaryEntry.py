@@ -25,6 +25,12 @@ class DictionaryEntry:
                                                     self.__tran, \
                                                     self.__def)
 
+    def __lt__(self, other):
+        if self.getWord() < other.getWord():
+            return True
+
+        return False
+
     def getWord(self):
         return self.__word
 
