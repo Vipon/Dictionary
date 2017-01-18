@@ -68,6 +68,28 @@ class Dictionary:
         self.__dict[Type].append(DictionaryEntry(str))
         self.sort(Type)
 
+    def findEntry(self, Word = ''):
+        for Type in self.__dict:
+            for entry in self.__dict[Type]:
+                if entry.getWord() == Word:
+                    return entry
+
+    def changeEntry(self, Entry = DictionaryEntry(), newWord = None, \
+                        newType = None, newDef = None, newTran = None):
+        if newWord != None:
+            Entry.setWord(newWord)
+        if newType != None:
+            Entry.setTran(newType)
+        if newDef != None:
+            Entry.setDef(newDef)
+        if newTran != None:
+            Entry.setTran(newTran)
+
 Dict = Dictionary('Dictionary.txt')
 print(Dict)
+Dict.createNewEntry('t')
+entry = Dict.findEntry('t')
+print(entry)
+Dict.changeEntry(entry, 'yyy')
+
 Dict.close()
