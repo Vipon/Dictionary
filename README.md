@@ -5,3 +5,7 @@ translation,definition and type of word or change it.
 
 #Tools.#
 * python 3.6.0
+
+#How to.#
+Run the DictionaryApp.py to start, like this:
+python DictionaryApp.py
