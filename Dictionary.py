@@ -84,7 +84,7 @@ class Dictionary:
         newFile.close()
         os.remove(oldFileName)
         os.rename(newFile.name, oldFileName)
-        self.__file = open(self.TMPSTR + oldFileName, 'w+', encoding='utf8')
+        self.__file = open(oldFileName, 'r+', encoding='utf8')
 
     def close(self):
         self.save()
@@ -99,7 +99,7 @@ class Dictionary:
         self.sort(Type)
 
     def findEntry(self, Word = ''):
-        Word = Word.strip()
+        Word.strip()
         for Type in self.__dict:
             for entry in self.__dict[Type]:
                 if entry.getWord() == Word:
