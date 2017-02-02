@@ -81,9 +81,10 @@ class Dictionary:
         self.__file.close()
         newFile = open(self.TMPSTR + oldFileName, 'w+', encoding='utf8')
         newFile.write(str)
+        newFile.close()
         os.remove(oldFileName)
         os.rename(newFile.name, oldFileName)
-        self.__file = newFile
+        self.__file = open(self.TMPSTR + oldFileName, 'w+', encoding='utf8')
 
     def close(self):
         self.save()
