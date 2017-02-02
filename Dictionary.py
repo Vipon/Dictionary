@@ -99,6 +99,7 @@ class Dictionary:
         self.sort(Type)
 
     def findEntry(self, Word = ''):
+        Word = Word.strip()
         for Type in self.__dict:
             for entry in self.__dict[Type]:
                 if entry.getWord() == Word:
