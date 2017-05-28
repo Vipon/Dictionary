@@ -1,11 +1,10 @@
-#Dictionary.#
-Dictionary - project for english learning. Your could add new words into
-your own dictionary during your education. Your could make notes about
-translation,definition and type of word or change it.
+# Dictionary
+**Dictionary** - project for english learning. Your could add new words into your own dictionary during your education. Your could make notes about translation,definition and type of word or change it.
 
-#Tools.#
+## Tools.
 * python 3.6.0
 
-#How to.#
+## How to.
 Run the DictionaryApp.py to start, like this:
-python DictionaryApp.py
+  python DictionaryApp.py
+  
