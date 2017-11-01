@@ -1,18 +1,14 @@
 import re
 
 class DictionaryEntry:
-    __word = ''
-    __type = ''
-    __def = ''
-    __tran = ''
 
-    patternStrFromDict = re.compile("(.*):(.*):(.*):(.*);")
+    __patternStrFromDict = re.compile("(.*):(.*):(.*):(.*);")
     def __init__(self, strFromDict = ''):
         if strFromDict == '':
             return
 
         (self.__word, self.__type, self.__def, self.__tran) = \
-                      self.patternStrFromDict.search(strFromDict).groups()
+                      DictionaryEntry.__patternStrFromDict.search(strFromDict).groups()
 
         self.__word = self.__word.strip()
         self.__type = self.__type.strip()
