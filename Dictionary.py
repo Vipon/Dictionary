@@ -98,12 +98,15 @@ class Dictionary:
         self.__dict[Type].append(DictionaryEntry(str))
         self.sort(Type)
 
-    def findEntry(self, Word = ''):
+    def findEntries(self, Word = ''):
         Word = Word.strip()
+        entries = []
         for Type in self.__dict:
             for entry in self.__dict[Type]:
                 if entry.getWord() == Word:
-                    return entry
+                    entries.append(entry)
+
+        return entries
 
     def changeEntry(self, Entry = DictionaryEntry(), newWord = None, \
                         newType = None, newDef = None, newTran = None):

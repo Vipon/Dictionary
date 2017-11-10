@@ -2,6 +2,7 @@ arrange: verb: : договариваться, организовывать;
 borrow: verb: : брать взаймы;
 dedicate: verb: : предназначать, посвящать;
 encourage: verb: : поощрять;
+hello: verb: greet someone: здороваться;
 backbone: noun: : позвоночник;
 fabric: noun: : изделие, устройство;
 hello: noun: greeting: приветствие;

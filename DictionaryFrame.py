@@ -78,8 +78,14 @@ class DictionaryFrame:
     def doSearch(self, ent):
         word = ent.get()
         if word != '':
-            entry = self.Dict.findEntry(word)
-            self.showText(entry.__str__())
+            entries = self.Dict.findEntries(word)
+            entries_str = entries[0].getWord() + ':\n'
+            for entry in entries:
+                entries_str += '\t[' + entry.getType() + '] - ' \
+                            + entry.getTran() + '.\n'           \
+                            + '\tDefinition: ' + entry.getDef() + '\n\n'
+
+            self.showText(entries_str)
 
     def makeLabel(rootFrame, txt):
         return Label(rootFrame, text = txt, height = 1, \

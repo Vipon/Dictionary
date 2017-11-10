@@ -1,8 +1,8 @@
 import re
 
 class DictionaryEntry:
-
     __patternStrFromDict = re.compile("(.*):(.*):(.*):(.*);")
+
     def __init__(self, strFromDict = ''):
         if strFromDict == '':
             return
@@ -16,10 +16,10 @@ class DictionaryEntry:
         self.__tran = self.__tran.strip()
 
     def __str__(self):
-        return '%s [%s] - %s.\n\tDefinition: %s' % (self.__word, \
-                                                    self.__type, \
-                                                    self.__tran, \
-                                                    self.__def)
+        return '%s [%s] - %s.\n\tDefinition: %s\n' % (  self.__word, \
+                                                        self.__type, \
+                                                        self.__tran, \
+                                                        self.__def)
 
     def __lt__(self, other):
         if self.getWord() < other.getWord():
