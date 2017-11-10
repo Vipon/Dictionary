@@ -37,6 +37,7 @@ class Dictionary:
         # Sort new dictionary.
         self.sort()
 
+
     def __tryRecover(self, file, tmp):
         '''
         !TODO: Need make function more clever. Currently, there is a very
@@ -47,6 +48,7 @@ class Dictionary:
             os.rename(tmp, file)
         else:
             os.remove(tmp)
+
 
     def __str__(self):
         str = ''
@@ -59,10 +61,12 @@ class Dictionary:
 
         return str
 
+
     def sort(self, t = None):
         for Type in self.__dict:
             if (Type == t) or (t == None):
                 self.__dict[Type].sort()
+
 
     def save(self):
         str = ''
@@ -86,9 +90,11 @@ class Dictionary:
         os.rename(newFile.name, oldFileName)
         self.__file = open(oldFileName, 'r+', encoding='utf8')
 
+
     def close(self):
         self.save()
         self.__file.close()
+
 
     def createNewEntry(self, Word = '', Type = '', Def = '', Tran = ''):
         if Type not in self.__dict:
@@ -97,6 +103,7 @@ class Dictionary:
         str = Word + ': ' + Type+ ': ' + Def+ ': ' + Tran + ';'
         self.__dict[Type].append(DictionaryEntry(str.lower()))
         self.sort(Type)
+
 
     def findEntries(self, Word = ''):
         Word = Word.strip().lower()
@@ -107,6 +114,7 @@ class Dictionary:
                     entries.append(entry)
 
         return entries
+
 
     def changeEntry(self, Entry = DictionaryEntry(), newWord = None, \
                         newType = None, newDef = None, newTran = None):

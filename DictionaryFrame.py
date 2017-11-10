@@ -71,9 +71,11 @@ class DictionaryFrame:
 
         self.__frame = appFrame
 
+
     def showText(self, text):
         self.__text.delete('1.0', END)
         self.__text.insert('1.0', text)
+
 
     def doSearch(self, ent):
         word = ent.get()
@@ -81,7 +83,7 @@ class DictionaryFrame:
             # Get all entries in a dictionary for a target word
             entries = self.Dict.findEntries(word)
             if not entries:
-                # If there is no entries, write about ir and return
+                # If there are no entries, write about ir and return
                 self.showText("There is no entry: " + word)
                 return
 
@@ -94,18 +96,22 @@ class DictionaryFrame:
 
             self.showText(entries_str)
 
+
     def makeLabel(rootFrame, txt):
         return Label(rootFrame, text = txt, height = 1, \
                                 width = 12, font = 'Menlo 24')
 
+
     def makeEntry(rootFrame, fnt = 'Menlo 24'):
         return Entry(rootFrame, font = fnt)
+
 
     def makeInputRow(rootFrame, text):
         row = Frame(rootFrame)
         Label(row, text = text, height = 1, width = 12, font = 'Menlo 24').pack(side = LEFT)
         Entry(row).pack(side = RIGHT, expand = YES, fill = X)
         return row
+
 
     def addWord(self):
         Word = self.__word.get()
@@ -115,8 +121,10 @@ class DictionaryFrame:
 
         self.Dict.createNewEntry(Word, Type, Def, Tran)
 
+
     def start(self):
         self.__frame.mainloop()
+
 
     def __close(self):
         self.Dict.close()
