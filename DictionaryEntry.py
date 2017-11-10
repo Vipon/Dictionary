@@ -10,10 +10,10 @@ class DictionaryEntry:
         (self.__word, self.__type, self.__def, self.__tran) = \
                       DictionaryEntry.__patternStrFromDict.search(strFromDict).groups()
 
-        self.__word = self.__word.strip()
-        self.__type = self.__type.strip()
-        self.__def  = self.__def.strip()
-        self.__tran = self.__tran.strip()
+        self.__word = self.__word.strip().lower()
+        self.__type = self.__type.strip().lower()
+        self.__def  = self.__def.strip().lower()
+        self.__tran = self.__tran.strip().lower()
 
     def __str__(self):
         return '%s [%s] - %s.\n\tDefinition: %s\n' % (  self.__word, \

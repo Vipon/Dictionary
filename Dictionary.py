@@ -95,11 +95,11 @@ class Dictionary:
             self.__dict[Type] = []
 
         str = Word + ': ' + Type+ ': ' + Def+ ': ' + Tran + ';'
-        self.__dict[Type].append(DictionaryEntry(str))
+        self.__dict[Type].append(DictionaryEntry(str.lower()))
         self.sort(Type)
 
     def findEntries(self, Word = ''):
-        Word = Word.strip()
+        Word = Word.strip().lower()
         entries = []
         for Type in self.__dict:
             for entry in self.__dict[Type]:

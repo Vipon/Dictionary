@@ -78,7 +78,14 @@ class DictionaryFrame:
     def doSearch(self, ent):
         word = ent.get()
         if word != '':
+            # Get all entries in a dictionary for a target word
             entries = self.Dict.findEntries(word)
+            if not entries:
+                # If there is no entries, write about ir and return
+                self.showText("There is no entry: " + word)
+                return
+
+            # If there is at least one entry, write.
             entries_str = entries[0].getWord() + ':\n'
             for entry in entries:
                 entries_str += '\t[' + entry.getType() + '] - ' \
