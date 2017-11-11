@@ -91,7 +91,7 @@ class DictionaryFrame:
         Entry(row).pack(side = RIGHT, expand = YES, fill = X)
         return row
 
-    def __get_defenition_str_for_print(self, entry):
+    def __get_definition_str_for_print(self, entry):
         def_str = entry.getDef()
         res_str = '\tDefinition: '
         char_in_line = int(50)
@@ -127,7 +127,7 @@ class DictionaryFrame:
             for entry in entries:
                 entries_str += '\t[' + entry.getType() + '] - '         \
                             + entry.getTran() + '.\n'                   \
-                            + self.__get_defenition_str_for_print(entry)
+                            + self.__get_definition_str_for_print(entry)
 
             self.__showText(entries_str)
 
