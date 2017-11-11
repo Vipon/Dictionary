@@ -4,6 +4,7 @@ dedicate: verb: : предназначать, посвящать;
 encourage: verb: : поощрять;
 hello: verb: greet someone: здороваться;
 backbone: noun: : позвоночник;
+demon: noun: an evil spirit or devil, especially one thought to possess a person or act as a tormentor in hell: демон, бес;
 fabric: noun: : изделие, устройство;
 hello: noun: greeting: приветствие;
 idle: noun: : холостой ход;
