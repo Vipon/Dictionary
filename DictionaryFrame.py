@@ -76,6 +76,7 @@ class DictionaryFrame:
         self.__text.delete('1.0', END)
         self.__text.insert('1.0', text)
 
+
     def makeLabel(rootFrame, txt):
         return Label(rootFrame, text = txt, height = 1, \
                                 width = 12, font = 'Menlo 24')
@@ -90,6 +91,7 @@ class DictionaryFrame:
         Label(row, text = text, height = 1, width = 12, font = 'Menlo 24').pack(side = LEFT)
         Entry(row).pack(side = RIGHT, expand = YES, fill = X)
         return row
+
 
     def __get_definition_str_for_print(self, entry):
         def_str = entry.getDef()

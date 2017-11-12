@@ -1,10 +1,13 @@
-from DictionaryEntry import *
 import os
+from xTimer import *
+from DictionaryEntry import *
 
 class Dictionary:
     # __dict contains dictionaries by types of words
     __dict = dict()
     __file = None
+    __timer = None
+    __savePeriod = 1.0
 
     TMPSTR = 'tmp_'
     def __init__(self, file = ''):
@@ -37,6 +40,11 @@ class Dictionary:
         # Sort new dictionary.
         self.sort()
 
+        # Start periodic saving dictionary event
+        self.__timer = xTimer(  self.__savePeriod,  \
+                                lambda: self.save(),\
+                                xTimer.PERIODICAL )
+        self.__timer.start()
 
     def __tryRecover(self, file, tmp):
         '''
@@ -92,6 +100,8 @@ class Dictionary:
 
 
     def close(self):
+        self.__timer.cancel()
+        self.__timer = None
         self.save()
         self.__file.close()
 
